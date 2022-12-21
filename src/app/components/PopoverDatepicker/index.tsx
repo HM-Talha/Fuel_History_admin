@@ -91,6 +91,7 @@ export default function ServerRequestDatePicker(props: Props) {
         onChange={(newValue) => {
           setValue(newValue);
         }}
+        inputFormat="DD-MM-YYYY"
         onMonthChange={handleMonthChange}
         renderInput={(params) => (
           <TextField

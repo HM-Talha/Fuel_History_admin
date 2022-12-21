@@ -39,6 +39,7 @@ import { useNavigate } from "react-router-dom";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CustomTable from "../../components/CustomTable/index";
+
 const OrganizationsManagement = () => {
   const [openRemoveModal, setOpenRemoveModal] = useState<any | null>(null);
   const [editModalOpen, setEditModalOpen] = useState(false);
@@ -138,9 +139,7 @@ const OrganizationsManagement = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    // dispatch(actions.getList());
-  }, [
+  useEffect(() => {}, [
     q,
     orderDirection,
     orderField,
@@ -158,15 +157,12 @@ const OrganizationsManagement = () => {
   };
 
   const getNextPage = () => {
-    // console.log(links, "links");
     setTimeout(() => {
-      // console.log("reqChangeActions.getNextPageItems(links.next)==");
       dispatch(actions.getNextPage(links.next));
       return false;
     }, 1000);
   };
   const handleModal = () => {
-    // setOpenModal(true);
     localStorage.setItem("edit", "false");
     navigate("mobile-users-add?mode=add");
   };
@@ -196,10 +192,7 @@ const OrganizationsManagement = () => {
     setDropDownValue(event.target.value);
     console.log("dropDownValue", dropDownValue);
   };
-  const handleSwitch = (event: SelectChangeEvent, row: any) => {
-    // console.log("event check", event);
-    // console.log("event check222", row);
-  };
+  const handleSwitch = (event: SelectChangeEvent, row: any) => {};
 
   const handleClick = () => {
     setOpen(true);
@@ -218,9 +211,8 @@ const OrganizationsManagement = () => {
   }, [activeVal]);
   return (
     <div className={styles.mainContainer}>
-      {/* <Grid item xs={2}> */}
       <CustomDrawer />
-      {/* </Grid> */}
+
       <Grid item xs={12}>
         <Topbar />
         <div className={styles.root}>
@@ -262,27 +254,10 @@ const OrganizationsManagement = () => {
             </Box>
           </div>
           <div className={styles.tableDiv}>
-            {/* <DataTable
-              loading={loading}
-              orderDirection={orderDirection}
-              orderField={orderField}
-              setQuery={setPageQuery}
-              rows={items}
-              columns={columns}
-              Actions="Delete,Edit,Toggle"
-              page="organizationManagement"
-              editAction={handleEdit}
-              deleteAction={handleDelete}
-              onRowDoubleClick={handleDoubleClick}
-              isPointerCursor={true}
-              onChange={handleSwitch}
-            /> */}
-
             <CustomTable
               dropDownValue={dropDownValue}
               setActiveVal={setActiveVal}
             />
-            {/* <Button onClick={handleClick}>Open simple snackbar</Button> */}
             <Snackbar
               open={open}
               autoHideDuration={6000}
@@ -340,111 +315,7 @@ const OrganizationsManagement = () => {
             <Button onClick={handleModal}>
               <img height="45px" src={Addbtn}></img>
             </Button>
-            <Modal
-              open={openModal}
-              onClose={handleModalClose}
-              aria-labelledby="modal-modal-title"
-              aria-describedby="modal-modal-description"
-            >
-              <Card className={styles.addModal}>
-                <div className={styles.modalContainer}>
-                  <Grid>
-                    <Typography align="center" className={styles.headerModal}>
-                      Add Organization
-                    </Typography>
-                  </Grid>
-                  <Grid
-                    container
-                    rowSpacing={1}
-                    columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-                    sx={{ padding: "20px 0px" }}
-                  >
-                    <Grid item xs={6}>
-                      <span className={styles.label}>Organization name</span>
-                      <TextField
-                        margin="dense"
-                        variant="outlined"
-                        fullWidth
-                        required
-                        id="username"
-                        placeholder="Enter Organization name"
-                        name="username"
-                        autoComplete={"off"}
-                        autoFocus
-                      />
-                    </Grid>
-                    <Grid item xs={6}>
-                      <label className={styles.label}>Task Number</label>
-                      <TextField
-                        variant="outlined"
-                        margin="dense"
-                        required
-                        fullWidth
-                        id="username"
-                        placeholder="Enter task number"
-                        name="username"
-                        autoComplete={"off"}
-                        autoFocus
-                      />
-                    </Grid>
-                    <Grid item xs={6}>
-                      <label className={styles.label}>Contact Name</label>
-                      <TextField
-                        variant="outlined"
-                        margin="dense"
-                        required
-                        fullWidth
-                        id="username"
-                        placeholder="Enter contact name"
-                        name="username"
-                        autoComplete={"off"}
-                        autoFocus
-                      />
-                    </Grid>
-                    <Grid item xs={6}>
-                      <label className={styles.label}>
-                        Contact Phone Number
-                      </label>
-                      <TextField
-                        variant="outlined"
-                        margin="dense"
-                        required
-                        fullWidth
-                        id="username"
-                        placeholder="Enter phone number"
-                        name="username"
-                        autoComplete={"off"}
-                        autoFocus
-                      />
-                    </Grid>
-                  </Grid>
-                  <div>
-                    <Grid container spacing={3}>
-                      <Grid
-                        className={styles.btnContainer}
-                        container
-                        item
-                        xs={6}
-                        direction="column"
-                      >
-                        <Button
-                          className={styles.cancelBtn}
-                          variant="outlined"
-                          onClick={handleModalClose}
-                        >
-                          Cancel
-                        </Button>
-                      </Grid>
-                      <Grid container item xs={6} direction="column">
-                        <Button className={styles.saveBtn} variant="contained">
-                          Save
-                        </Button>
-                      </Grid>
-                    </Grid>
-                  </div>
-                </div>
-              </Card>
-            </Modal>
+          
           </div>
         </div>
       </Grid>

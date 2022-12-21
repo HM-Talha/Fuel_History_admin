@@ -14,6 +14,7 @@ import imgEdit from "../../assets/Edit.png";
 import { Box } from "@mui/system";
 import { useState, useEffect } from "react";
 import { useFetcher, useLocation, useNavigate } from "react-router-dom";
+import clsx from "clsx";
 function createData(
   status: string,
   firstName: string,
@@ -174,8 +175,6 @@ export default function BasicTable(props: Props) {
   const { state } = useLocation();
   const Location = useLocation();
   const [indexNum, setIndexNum] = useState<any>("");
-  // console.log("activeValue", state);
-  // console.log("Location", Location);
   let rows = [
     {
       status: "Active",
@@ -302,16 +301,14 @@ export default function BasicTable(props: Props) {
     setOpen(true);
   };
   const handleClose = () => {
-    // setOpenRemoveModal(null);
     setOpen(false);
   };
   const handleCloseAdd = () => {
-    // setOpenRemoveModal(null);
     setOpenAdd(false);
   };
   useEffect(() => {
     setData([]);
-    console.log("props.dropDownValue", props.dropDownValue);
+    // console.log("props.dropDownValue", props.dropDownValue);
     let flag = true;
     rows.forEach((v) => {
       if (v.paymentMethod.toUpperCase() === props.dropDownValue.toUpperCase()) {
@@ -330,12 +327,10 @@ export default function BasicTable(props: Props) {
   }, []);
 
   useEffect(() => {
-    // console.log("data", data && data);
     let flag = true;
     let data2 = data.forEach((v, i) => {
       if (v?.id === state?.id) {
         data?.splice(i, 1, state);
-        // setData([...data]);
         handleClick();
         flag = false;
       }
@@ -385,61 +380,44 @@ export default function BasicTable(props: Props) {
           sx={{ minWidth: 650 }}
           aria-label="simple table"
           className={styles.table}
+          stickyHeader
         >
-          <TableHead
-            sx={{
-              // background: "#F4F8FF",
-              position: "relative !important",
-              // top: "0px",
-              width: "100%",
-              zIndex: 222,
-            }}
-          >
-            <TableRow
-              sx={{
-                position: "fixed ",
-                background: "#F4F8FF",
-                zIndex: 222,
-                width: props.dropDownValue === 'Choose Payment Method' ? "77.4%" : "78.1%",
-                border: "1px solid lightgray",
-                borderBottom: "none",
-                height: "80px",
-              }}
-            >
+          <TableHead sx={{ background: "#F4F8FF" }}>
+            <TableRow>
               <TableCell
+                className={styles.cellHead}
                 sx={{
                   fontFamily: "Open Sans",
                   fontWeight: 600,
                   fontSize: "16px",
                   lineHeight: "22px",
                   paddingTop: "30px",
-                  width: "19.2% !important",
                 }}
               >
                 Action
               </TableCell>
 
               <TableCell
+                className={clsx(styles.cellHead)}
                 sx={{
                   fontFamily: "Open Sans",
                   fontWeight: 600,
                   fontSize: "16px",
                   lineHeight: "22px",
                   paddingTop: "30px",
-                  width: "11% !important",
                 }}
               >
                 Status
               </TableCell>
 
               <TableCell
+                className={clsx(styles.cellHead)}
                 sx={{
                   fontFamily: "Open Sans",
                   fontWeight: 600,
                   fontSize: "16px",
                   lineHeight: "22px",
                   paddingTop: "30px",
-                  width: "15.3% !important",
                 }}
               >
                 First Name
@@ -451,6 +429,7 @@ export default function BasicTable(props: Props) {
               </TableCell>
 
               <TableCell
+                className={clsx(styles.cellHead)}
                 sx={{
                   fontFamily: "Open Sans",
                   fontWeight: 600,
@@ -468,6 +447,7 @@ export default function BasicTable(props: Props) {
               </TableCell>
 
               <TableCell
+                className={clsx(styles.cellHead)}
                 sx={{
                   fontFamily: "Open Sans",
                   fontWeight: 600,
@@ -485,6 +465,7 @@ export default function BasicTable(props: Props) {
               </TableCell>
 
               <TableCell
+                className={clsx(styles.cellHead)}
                 sx={{
                   fontFamily: "Open Sans",
                   fontWeight: 600,
@@ -502,13 +483,13 @@ export default function BasicTable(props: Props) {
               </TableCell>
 
               <TableCell
+                className={clsx(styles.cellHead)}
                 sx={{
                   fontFamily: "Open Sans",
                   fontWeight: 600,
                   fontSize: "16px",
                   lineHeight: "22px",
                   paddingTop: "30px",
-                  width: "10%",
                 }}
               >
                 Role
@@ -558,29 +539,14 @@ export default function BasicTable(props: Props) {
                   </TableCell>
                   <TableCell
                     align="left"
-                    style={{
+                    sx={{
                       width: "140px",
                     }}
                   >
                     {v.status}
                   </TableCell>
-                  <TableCell
-                    align="left"
-                    style={{
-                      width: "200px",
-                    }}
-                  >
-                    {v.firstName}
-                  </TableCell>
-                  <TableCell
-                    align="left"
-                    style={{
-                      width: "120px",
-                    }}
-                  >
-                    {" "}
-                    {v.lastName}
-                  </TableCell>
+                  <TableCell align="left">{v.firstName}</TableCell>
+                  <TableCell align="left"> {v.lastName}</TableCell>
                   <TableCell align="left"> {v.paymentMethod}</TableCell>
                   <TableCell align="left"> {v.employeId}</TableCell>
                   <TableCell align="left"> {v.role}</TableCell>
@@ -590,7 +556,7 @@ export default function BasicTable(props: Props) {
           </TableBody>
         </Table>
       </TableContainer>
-      {/* <Button onClick={handleClick}>Open simple snackbar</Button> */}
+
       <Snackbar
         open={open}
         autoHideDuration={6000}

@@ -13,39 +13,39 @@ export const useStyles = makeStyles(() => ({
     marginTop: "70px",
   },
   tableDiv: {
-    // border: "1px",
-    borderRadius: 6,
-    maxHeight: "calc(90vh - 200px)",
-    border: "1px solid #D5D8DE",
-    overflowY: "auto",
-    marginTop: "14px",
-    // borderTop:'0.5px solid #9CA2B0',
-    "&::-webkit-scrollbar": {
-      width: 10,
-      height: 5,
-      padding: "5px 0px",
-    },
-    "&::-webkit-scrollbar-track": {
-      background: "#E2E7EB",
-      // marginTop:500,
-      // boxShadow: 'inset 4px 4px 3px rgba(0, 0, 0, 0.15)',
-      borderRadius: "10px",
-    },
+    // // border: "1px",
+    // borderRadius: 6,
+    // maxHeight: "calc(90vh - 200px)",
+    // border: "1px solid #D5D8DE",
+    // overflowY: "auto",
+    // marginTop: "14px",
+    // // borderTop:'0.5px solid #9CA2B0',
+    // "&::-webkit-scrollbar": {
+    //   width: 10,
+    //   height: 5,
+    //   padding: "5px 0px",
+    // },
+    // "&::-webkit-scrollbar-track": {
+    //   background: "#E2E7EB",
+    //   // marginTop:500,
+    //   // boxShadow: 'inset 4px 4px 3px rgba(0, 0, 0, 0.15)',
+    //   borderRadius: "10px",
+    // },
 
-    /* Handle */
-    "&::-webkit-scrollbar-thumb": {
-      background: "#0016BB",
-      borderRadius: 20,
-      // border: '1px solid #3C4858',
-      transform: "matrix(-1, 0, 0, 1, 0, 0)",
-      boxShadow: "1px 1px 2px rgba(0, 0, 0, 0.15)",
-      zIndex:999999
-    },
+    // /* Handle */
+    // "&::-webkit-scrollbar-thumb": {
+    //   background: "#0016BB",
+    //   borderRadius: 20,
+    //   // border: '1px solid #3C4858',
+    //   transform: "matrix(-1, 0, 0, 1, 0, 0)",
+    //   boxShadow: "1px 1px 2px rgba(0, 0, 0, 0.15)",
 
-    /* Handle on hover */
-    "&::-webkit-scrollbar-thumb:hover": {
-      background: "#0D28F4",
-    },
+    // },
+
+    // /* Handle on hover */
+    // "&::-webkit-scrollbar-thumb:hover": {
+    //   background: "#0D28F4",
+    // },
   },
   filterBox: {
     display: "flex",
@@ -114,8 +114,7 @@ export const useStyles = makeStyles(() => ({
     },
     "&::-webkit-scrollbar-track": {
       background: "#D9D9D9",
-      // marginTop:500,
-      // boxShadow: 'inset 4px 4px 3px rgba(0, 0, 0, 0.15)',
+
       borderRadius: "10px",
     },
 
@@ -123,9 +122,7 @@ export const useStyles = makeStyles(() => ({
     "&::-webkit-scrollbar-thumb": {
       background: "#959595",
       borderRadius: 20,
-      // border: '1px solid #3C4858',
       transform: "matrix(-1, 0, 0, 1, 0, 0)",
-      //  boxShadow: "1px 1px 2px rgba(0, 0, 0, 0.15)",
     },
 
     /* Handle on hover */
