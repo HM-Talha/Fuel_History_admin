@@ -10,7 +10,6 @@ export const useStyles = makeStyles({
     },
     '*::-webkit-scrollbar-thumb': {
       background: "gray",
-      // outline: '1px solid slategrey'
     }
   },
 
@@ -23,13 +22,11 @@ export const useStyles = makeStyles({
   },
   container: {
     maxHeight: "500px",
-    // paddingRight: 5,
-    // border: "none",
     position: "relative",
     bottom: "10px",
     overflow: "auto",
     "&::-webkit-scrollbar": {
-      // display: "none"
+
     },
     "&::-webkit-scrollbar-track": {
       background: "#F4F4F4",
@@ -41,7 +38,6 @@ export const useStyles = makeStyles({
     "&::-webkit-scrollbar-thumb": {
       background: "#0016BB",
       borderRadius: 20,
-      // border: "3px solid #387E8D",
       transform: "matrix(-1, 0, 0, 1, 0, 0)",
       boxShadow: "1px 1px 2px rgba(0, 0, 0, 0.15)",
     },
@@ -58,13 +54,10 @@ export const useStyles = makeStyles({
     },
   },
   cellHead: {
-    // minWidth: 170,
     position: "sticky",
-    // padding: "14px 14px 17px 16px",
     fontSize: 14,
     fontWeight: 700,
     lineHeight: "16.71px",
-    // textAlign: "unset",
     color: "#1D1F20",
     whiteSpace: "nowrap",
     height: 56,
@@ -81,7 +74,6 @@ export const useStyles = makeStyles({
     },
   },
   cellHeadWithoutWidth: {
-
     position: "sticky",
     padding: "14px 14px 17px 16px",
     fontSize: 14,
@@ -108,21 +100,13 @@ export const useStyles = makeStyles({
     "& .MuiTableRow-root:nth-of-type(even)": {
       backgroundColor: "#F4F8FF",
     },
-    // border: "none",
     "& .MuiTableCell-root": {
       border: "none",
       backgroundColor: "transparent",
     },
-    // marginTop: "50px"
-    // position: 'relative',
-    // top: "80px"
   },
   table: {
-    // border: "1px solid #C6C9CA",
     maxHeight: "524px",
-
-
-
   },
   headerCheckbox: {
     padding: 0,

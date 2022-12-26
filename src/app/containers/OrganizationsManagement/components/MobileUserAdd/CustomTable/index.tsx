@@ -123,7 +123,7 @@ export default function BasicTable(props: Props) {
   };
   const deleteRow = () => {
     const deleteValue = data.filter((v) => v.id !== deleteVal.id);
-    console.log("value", deleteValue);
+    // console.log("value", deleteValue);
     setData(deleteValue);
     setSend(false);
   };

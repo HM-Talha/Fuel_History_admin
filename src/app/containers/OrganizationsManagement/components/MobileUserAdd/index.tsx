@@ -95,7 +95,9 @@ const MobileUserAdd = (props: Props) => {
   }, []);
   const saveAction = () => {
     navigate("/mobile-users", { state: editVal });
-    console.log("editval", editVal);
+    sessionStorage.setItem("added", "true");
+    sessionStorage.setItem("addedVal", JSON.stringify(editVal));
+    // console.log("editval", editVal);
   };
   return (
     <div className={styles.mainContainer}>

@@ -1,6 +1,17 @@
 import { makeStyles } from "@mui/styles";
 
 export const useStyles = makeStyles({
+  '@global': {
+    '*::-webkit-scrollbar': {
+      width: '0.8em'
+    },
+    '*::-webkit-scrollbar-track': {
+      '-webkit-box-shadow': 'inset 0 0 6px rgba(0,0,0,0.00)'
+    },
+    '*::-webkit-scrollbar-thumb': {
+      background: "gray",
+    }
+  },
   root: {
     display: "flex",
     alignItems: "center",
@@ -8,16 +19,14 @@ export const useStyles = makeStyles({
     marginTop: "8px",
   },
   container: {
-    minHeight: "150px",
-    // paddingRight: 5,
-    border: "none",
+
+    maxHeight: "500px",
     position: "relative",
-    bottom: "10px",
+    // bottom: "10px",
     overflow: "auto",
     "&::-webkit-scrollbar": {
-      width: 13,
-      height: 8,
-      padding: "5px 0px",
+      height:12,
+
     },
     "&::-webkit-scrollbar-track": {
       background: "#F4F4F4",
@@ -27,16 +36,17 @@ export const useStyles = makeStyles({
 
     /* Handle */
     "&::-webkit-scrollbar-thumb": {
-      background: "#0D28F4",
+      background: "#0016BB",
       borderRadius: 20,
-      border: "3px solid ##0D28F4",
       transform: "matrix(-1, 0, 0, 1, 0, 0)",
       boxShadow: "1px 1px 2px rgba(0, 0, 0, 0.15)",
+      height:20,
     },
-
+    
     /* Handle on hover */
     "&::-webkit-scrollbar-thumb:hover": {
       background: "#0D28F4",
+      height:20,
     },
   },
   tableSort: {
@@ -64,7 +74,7 @@ export const useStyles = makeStyles({
       borderLeft: "transparent",
     },
     "&.makeStyles-cellHead-33": {
-      backgroundColor: "transparent",
+      // backgroundColor: "transparent",
       color: "#BDBDBD",
     },
   },
@@ -86,12 +96,12 @@ export const useStyles = makeStyles({
       borderLeft: "transparent",
     },
     "&.makeStyles-cellHead-33": {
-      backgroundColor: "transparent",
+      // backgroundColor: "transparent",
       color: "#BDBDBD",
     },
   },
   tableBody: {
-    backgroundColor: "transparent",
+    backgroundColor: "transparedrent",
     "& .MuiTableRow-root:nth-of-type(even)": {
       backgroundColor: "#F4F8FF",
     },
@@ -102,7 +112,7 @@ export const useStyles = makeStyles({
     },
   },
   table: {
-    // border: "1px solid #C6C9CA",
+    border: "1px solid transparent",
     // maxHeight: "524px",
   },
   headerCheckbox: {

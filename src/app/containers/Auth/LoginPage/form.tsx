@@ -211,8 +211,8 @@ export function LoginForm({ className }) {
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    console.log("name", name);
-    console.log("value", value);
+    // console.log("name", name);
+    // console.log("value", value);
     if (value) {
       setChangeColor(true);
     } else {

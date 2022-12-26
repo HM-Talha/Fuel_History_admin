@@ -48,6 +48,7 @@ const OrganizationsManagement = () => {
   const [dropDownValue, setDropDownValue] = useState<string>(
     "Choose Payment Method"
   );
+  const [addedValue, setAddedValue] = useState<any>();
   const [activeVal, setActiveVal] = useState<boolean>();
   const [resetPasswordOpen, setResetPasswordOpen] = useState(false);
   const listitems = useSelector(selectList);
@@ -56,6 +57,7 @@ const OrganizationsManagement = () => {
     Array<{ startDate: Date | null; endDate: Date | null; key: string }>
   >([{ startDate: null, endDate: null, key: "selection" }]);
   const [open, setOpen] = React.useState(false);
+  const [openAdd, setOpenAdd] = React.useState(false);
   const [editedDateState, setEditedDateState] = useState<
     Array<{ startDate: Date | null; endDate: Date | null; key: string }>
   >([{ startDate: null, endDate: null, key: "selection" }]);
@@ -190,7 +192,7 @@ const OrganizationsManagement = () => {
 
   const handleChange = (event: SelectChangeEvent) => {
     setDropDownValue(event.target.value);
-    console.log("dropDownValue", dropDownValue);
+    // console.log("dropDownValue", dropDownValue);
   };
   const handleSwitch = (event: SelectChangeEvent, row: any) => {};
 
@@ -209,6 +211,29 @@ const OrganizationsManagement = () => {
       handleClick();
     }
   }, [activeVal]);
+  useEffect(() => {
+    const added = sessionStorage.getItem("added");
+    const addedVal = sessionStorage.getItem("addedVal");
+
+    let parseData;
+    if (typeof addedVal === "string") {
+      parseData = JSON.parse(addedVal);
+    }
+
+    if (added == "true") {
+      setAddedValue(parseData);
+      // console.log("parseData", addedValue);
+      setOpenAdd(true);
+    }
+  });
+  useEffect(() => {
+    setTimeout(() => {
+      setOpenAdd(false);
+      sessionStorage.setItem("added", "false");
+      const added = sessionStorage.getItem("added");
+      // console.log("add", added);
+    }, 3000);
+  }, [openAdd]);
   return (
     <div className={styles.mainContainer}>
       <CustomDrawer />
@@ -264,6 +289,12 @@ const OrganizationsManagement = () => {
               onClose={handleClose}
               message="The User Alexendar Eyal is disable"
             />
+            <Snackbar
+              open={openAdd}
+              autoHideDuration={6000}
+              // onClose={handleCloseAdd}
+              message={`The User ${addedValue?.firstName} ${addedValue?.lastName} Is added`}
+            />
             {/* <Modal
               open={openDelete}
               onClose={handleDeleteClose}
@@ -315,7 +346,6 @@ const OrganizationsManagement = () => {
             <Button onClick={handleModal}>
               <img height="45px" src={Addbtn}></img>
             </Button>
-          
           </div>
         </div>
       </Grid>

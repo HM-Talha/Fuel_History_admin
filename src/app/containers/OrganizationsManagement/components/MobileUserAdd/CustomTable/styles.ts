@@ -103,7 +103,7 @@ export const useStyles = makeStyles({
   },
   table: {
     border: "1px solid #C6C9CA",
-    height: "524px",
+    // height: "524px",
   },
   headerCheckbox: {
     padding: 0,

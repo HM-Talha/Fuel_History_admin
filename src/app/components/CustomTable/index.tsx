@@ -331,21 +331,21 @@ export default function BasicTable(props: Props) {
     let data2 = data.forEach((v, i) => {
       if (v?.id === state?.id) {
         data?.splice(i, 1, state);
-        handleClick();
+        // handleClick();
         flag = false;
       }
     });
     if (flag) {
       state && data.unshift(state);
       setData([...data]);
-      setOpenAdd(true);
-      setOpen(false);
+      // setOpenAdd(true);
+      // setOpen(false);
     }
   }, [isEdit]);
   useEffect(() => {
     setTimeout(() => {
-      handleClose();
-      handleCloseAdd();
+      // handleClose();
+      // handleCloseAdd();
     }, 5000);
   });
 
@@ -362,14 +362,14 @@ export default function BasicTable(props: Props) {
   }, [activeValue1]);
 
   const getCurrentVal = (val, i) => {
-    console.log("valaa", val);
+    // console.log("valaa", val);
     data.forEach((element) => {
       if (element?.id == val?.id) {
         data?.splice(i, 1, {
           ...data[i],
           status: activeValue1 ? "Inactive" : "Active",
         });
-        console.log("valaa condition", element);
+        // console.log("valaa condition", element);
       }
     });
   };
@@ -557,12 +557,12 @@ export default function BasicTable(props: Props) {
         </Table>
       </TableContainer>
 
-      <Snackbar
+      {/* <Snackbar
         open={open}
         autoHideDuration={6000}
         onClose={handleClose}
         message="The Mobile Number of the User Alexender  Rechaium  us changed"
-      />
+      /> */}
       <Snackbar
         open={openAdd}
         autoHideDuration={6000}

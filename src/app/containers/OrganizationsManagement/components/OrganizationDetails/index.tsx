@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import Addbtn from "../../assets/Buttonplus2.png";
+import Addbtn2 from "../../assets/Buttonplus.png";
 import { useStyles } from "./style";
 import Topbar from "../../../Dashboard/components/topbar";
 import { style } from "@mui/system";
@@ -69,7 +70,7 @@ const OrganizationDetails = (props: Props) => {
     setDisable(true);
   };
   const handleAddbtn = () => {
-    navigate("/organizations/organization-details/add-group-treatment");
+    navigate("/mobile-users/mobile-users-add?mode=add");
   };
   useEffect(() => {
     if (
@@ -342,11 +343,11 @@ const OrganizationDetails = (props: Props) => {
               justifyContent: "flex-end",
             }}
           >
-            <Button onClick={handleAddbtn}>
+            <Button onClick={handleAddbtn} disabled={disable}>
               <img
                 height="45px"
                 className={styles.addBtnImage}
-                src={Addbtn}
+                src={disable ? Addbtn : Addbtn2}
               ></img>
             </Button>
           </Grid>

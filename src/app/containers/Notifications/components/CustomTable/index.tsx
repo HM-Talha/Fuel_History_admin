@@ -420,7 +420,7 @@ export default function BasicTable(props: Props) {
   const { state } = useLocation();
   const Location = useLocation();
   const [indexNum, setIndexNum] = useState<any>("");
-  console.log("date To", rows[0].date.slice(0, 2));
+  // console.log("date To", rows[0].date.slice(0, 2));
   // console.log("date From", props.dateFrom.$D);
 
   useEffect(() => {
@@ -471,31 +471,62 @@ export default function BasicTable(props: Props) {
 
   useEffect(() => {
     let flag = true;
+    // console.log("props?.dateTo?.$D", props?.dateFrom?.$D);
     setData([]);
-    rows.forEach((elem) => {
-      if (Number(elem?.date?.slice(0, 2)) == props?.dateTo?.$D) {
-        console.log(elem);
-        setData((old) => [...old, elem]);
-        flag = false;
-      }
-    });
+    if (props) {
+      rows.forEach((elem) => {
+        // if (Number(elem?.date?.slice(0, 2)) == props?.dateTo?.$D) {
+        //   console.log(elem);
+        //   setData((old) => [...old, elem]);
+        //   if (props?.dateTo?.$D >= 15) {
+        //     flag = false;
+        //     console.log("checkinggg");
+        //   }
+        // }
+        if (
+          (props?.dateFrom?.$D == 16 || props?.dateFrom?.$D == 17) &&
+          props?.dateTo?.$D == 17
+        ) {
+          if (Number(elem?.date?.slice(0, 2)) == 17) {
+            // console.log(elem);
+            setData((old) => [...old, elem]);
+            // console.log("checkinggg");
+            if (props?.dateTo?.$D >= 15) {
+              flag = false;
+            }
+            flag = false;
+          }
+        } else if (
+          props?.dateFrom?.$D == 15 &&
+          (props?.dateTo?.$D == 15 || props?.dateTo?.$D == 16)
+        ) {
+          // console.log("check condition");
+          if (Number(elem?.date?.slice(0, 2)) == 15) {
+            // console.log(elem);
+            setData((old) => [...old, elem]);
+            // console.log("checkinggg");
+            if (props?.dateTo?.$D >= 15) {
+              flag = false;
+            }
+            flag = false;
+          }
+        }
+      });
+    }
     if (flag) {
       setData(rows);
     }
-  }, [props.dateTo]);
+  }, [props.dateTo, props.dateFrom]);
   useEffect(() => {
     setData(data);
   }, [data]);
   return (
-    <TableContainer
-      sx={{ border: "1px solid red" }}
-      component={Paper}
-      className={styles.container}
-    >
-      <Table className={styles.table}>
-        <TableHead sx={{ background: "#F4F8FF" }}>
+    <TableContainer component={Paper} className={styles.container}>
+      <Table className={styles.table} stickyHeader>
+        <TableHead>
           <TableRow>
             <TableCell
+              className={styles.cellHead}
               sx={{
                 fontFamily: "Open Sans",
                 fontWeight: 600,
@@ -513,6 +544,7 @@ export default function BasicTable(props: Props) {
               />
             </TableCell>
             <TableCell
+              className={styles.cellHead}
               sx={{
                 fontFamily: "Open Sans",
                 fontWeight: 600,
@@ -530,6 +562,7 @@ export default function BasicTable(props: Props) {
               />
             </TableCell>
             <TableCell
+              className={styles.cellHead}
               sx={{
                 fontFamily: "Open Sans",
                 fontWeight: 600,
@@ -548,6 +581,7 @@ export default function BasicTable(props: Props) {
             </TableCell>
 
             <TableCell
+              className={styles.cellHead}
               sx={{
                 fontFamily: "Open Sans",
                 fontWeight: 600,
@@ -566,6 +600,7 @@ export default function BasicTable(props: Props) {
             </TableCell>
 
             <TableCell
+              className={styles.cellHead}
               sx={{
                 fontFamily: "Open Sans",
                 fontWeight: 600,
@@ -584,6 +619,7 @@ export default function BasicTable(props: Props) {
             </TableCell>
 
             <TableCell
+              className={styles.cellHead}
               sx={{
                 fontFamily: "Open Sans",
                 fontWeight: 600,
@@ -602,6 +638,7 @@ export default function BasicTable(props: Props) {
             </TableCell>
 
             <TableCell
+              className={styles.cellHead}
               sx={{
                 fontFamily: "Open Sans",
                 fontWeight: 600,
@@ -619,6 +656,7 @@ export default function BasicTable(props: Props) {
               />
             </TableCell>
             <TableCell
+              className={styles.cellHead}
               sx={{
                 fontFamily: "Open Sans",
                 fontWeight: 600,
@@ -637,6 +675,7 @@ export default function BasicTable(props: Props) {
             </TableCell>
 
             <TableCell
+              className={styles.cellHead}
               sx={{
                 fontFamily: "Open Sans",
                 fontWeight: 600,
@@ -654,6 +693,7 @@ export default function BasicTable(props: Props) {
               />
             </TableCell>
             <TableCell
+              className={styles.cellHead}
               sx={{
                 fontFamily: "Open Sans",
                 fontWeight: 600,
@@ -678,6 +718,7 @@ export default function BasicTable(props: Props) {
                 lineHeight: "22px",
                 paddingTop: "30px",
                 minWidth: "200px",
+                background: "#F4F8FF",
               }}
             >
               Gas Company name
@@ -688,6 +729,7 @@ export default function BasicTable(props: Props) {
               />
             </TableCell>
             <TableCell
+              className={styles.cellHead}
               sx={{
                 fontFamily: "Open Sans",
                 fontWeight: 600,
@@ -705,6 +747,7 @@ export default function BasicTable(props: Props) {
               />
             </TableCell>
             <TableCell
+              className={styles.cellHead}
               sx={{
                 fontFamily: "Open Sans",
                 fontWeight: 600,
@@ -722,6 +765,7 @@ export default function BasicTable(props: Props) {
               />
             </TableCell>
             <TableCell
+              className={styles.cellHead}
               sx={{
                 fontFamily: "Open Sans",
                 fontWeight: 600,
@@ -739,6 +783,7 @@ export default function BasicTable(props: Props) {
               />
             </TableCell>
             <TableCell
+              className={styles.cellHead}
               sx={{
                 fontFamily: "Open Sans",
                 fontWeight: 600,

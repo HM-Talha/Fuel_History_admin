@@ -174,17 +174,17 @@ const OrganizationsManagement = () => {
   const loading = useSelector(selectLoading);
   const handleChange = (event: any) => {
     setDropDownValue(event.target.value);
-    console.log("dropDownValue", dropDownValue);
+    // console.log("dropDownValue", dropDownValue);
   };
   const DropDownNames = ["Credit Card", "Salary"];
   const handleChange1 = (event: any) => {
     setDropDownValue1(event.target.value);
-    console.log("dropDownValue", dropDownValue1);
+    // console.log("dropDownValue", dropDownValue1);
   };
   const DropDownNames1 = ["95", "98"];
   const handleChange2 = (event: any) => {
     setDropDownValue2(event.target.value);
-    console.log("dropDownValue", dropDownValue2);
+    // console.log("dropDownValue", dropDownValue2);
   };
   const DropDownNames2 = ["Station 1", "Station 2", "Station 3", "Station 4"];
   return (
